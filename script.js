@@ -8,30 +8,28 @@ const prevButton = document.querySelector('.prev-btn');
 const dotsNav = document.querySelector('.carousel-nav');
 const dots = Array.from(dotsNav.children);
 
-// Pega a largura do primeiro slide
+
 let slideWidth = slides[0].getBoundingClientRect().width;
 
-// Função para posicionar os slides um ao lado do outro
+
 const setSlidePosition = (slide, index) => {
     slide.style.left = slideWidth * index + 'px';
 };
-// Aplica a posição inicial
+
 slides.forEach(setSlidePosition);
 
-// Função para mover o trilho para o slide alvo
 const moveToSlide = (track, currentSlide, targetSlide) => {
     track.style.transform = 'translateX(-' + targetSlide.style.left + ')';
     currentSlide.classList.remove('current-slide');
     targetSlide.classList.add('current-slide');
 };
 
-// Função para atualizar as bolinhas
+
 const updateDots = (currentDot, targetDot) => {
     currentDot.classList.remove('current-slide');
     targetDot.classList.add('current-slide');
 };
 
-// --- Evento de Redimensionamento da Janela ---
 window.addEventListener('resize', () => {
     slideWidth = slides[0].getBoundingClientRect().width;
     slides.forEach(setSlidePosition);
@@ -44,7 +42,6 @@ window.addEventListener('resize', () => {
     }, 100);
 });
 
-// --- Botões e Bolinhas ---
 nextButton.addEventListener('click', e => {
     const currentSlide = track.querySelector('.current-slide');
     let nextSlide = currentSlide.nextElementSibling;
@@ -85,7 +82,6 @@ dotsNav.addEventListener('click', e => {
    2. LÓGICA DOS MODAIS (PROJETOS)
    ========================================= */
 
-// Função para abrir o modal específico
 function abrirModal(modalId) {
     const modal = document.getElementById(modalId);
     if(modal) {
@@ -95,19 +91,14 @@ function abrirModal(modalId) {
     }
 }
 
-// Função para fechar clicando no botão X
 function fecharModalBotao(modalId) {
     const modal = document.getElementById(modalId);
     if(modal) {
         modal.style.display = "none";
-        // Libera a rolagem do site
         document.body.style.overflow = "auto";
     }
 }
-
-// Função para fechar clicando no fundo escuro (Overlay)
 function fecharModal(event, modalId) {
-    // Verifica se o clique foi EXATAMENTE no fundo escuro e não na caixa branca
     if (event.target.id === modalId) {
         document.getElementById(modalId).style.display = "none";
         document.body.style.overflow = "auto";
@@ -123,9 +114,7 @@ const observer = new IntersectionObserver((entries) => {
         if (entry.isIntersecting) {
             entry.target.classList.add('show');
         } else {
-            // Se quiser que a animação repita ao subir e descer,
-            // descomente a linha abaixo:
-            // entry.target.classList.remove('show');
+             entry.target.classList.remove('show');
         }
     });
 });
