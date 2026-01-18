@@ -1,0 +1,943 @@
+/* =========================================
+   1. RESET E CONFIGURAÇÕES GERAIS
+   ========================================= */
+html {
+    scroll-behavior: smooth;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #05122B;
+    overflow-x: hidden;
+}
+
+/* =========================================
+   2. CABEÇALHO (LOGO + MENU + CONTATOS)
+   ========================================= */
+.top-bar { 
+    background-color: #05122B; 
+    padding: 10px 5%; 
+    display: flex; 
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(197, 160, 89, 0.3); 
+    position: sticky; 
+    top: 0;
+    z-index: 1000;
+}
+
+.logo-container { 
+    display: flex; 
+    align-items: center; 
+    gap: 15px; 
+    flex-shrink: 0; 
+}
+
+.profile-pic { 
+    width: 60px; 
+    height: 60px; 
+    border-radius: 50%; 
+    object-fit: cover; 
+    border: 2px solid #c5a059; 
+}
+
+.logo-text { 
+    display: flex; 
+    flex-direction: column; 
+}
+
+.logo-text .name { 
+    font-family: 'Cinzel', serif; 
+    font-weight: 800; 
+    font-size: 1.4rem; 
+    color: #ffffff; 
+    letter-spacing: 1px; 
+}
+
+.logo-text .title { 
+    font-family: 'Cinzel', serif;
+    font-weight: bold; 
+    font-size: 0.85rem; 
+    color: #c5a059; 
+    letter-spacing: 2px; 
+    text-transform: uppercase; 
+}
+
+/* MENU NO CENTRO */
+.navbar { 
+    background-color: transparent; 
+    box-shadow: none;
+    border: none;
+    width: auto;
+    margin: 0 20px;
+}
+
+.navbar ul { 
+    list-style: none; 
+    display: flex; 
+    justify-content: center; 
+    gap: 30px; 
+}
+
+.navbar a { 
+    text-decoration: none; 
+    color: #c5a059; 
+    font-family: 'Cinzel', serif; 
+    font-size: 1rem; 
+    font-weight: 700;
+    transition: all 0.3s;
+    position: relative; 
+}
+
+.navbar a:hover { 
+    color: #ffffff; 
+}
+
+.navbar a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: #fff;
+    transition: width 0.3s;
+}
+
+.navbar a:hover::after {
+    width: 100%;
+}
+
+/* ÍCONES DIREITA */
+.social-icons {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.social-text {
+    font-family: 'Cinzel', serif;
+    color: #c5a059;
+    font-size: 1rem;
+    font-weight: 700;
+    display: flex; 
+    align-items: center; 
+    margin-right: 5px; 
+}
+
+.social-icons a {
+    text-decoration: none;
+    color: #c5a059;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    width: 38px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border: 1px solid rgba(197, 160, 89, 0.3);
+}
+
+.social-icons a:hover {
+    background-color: #c5a059;
+    color: #05122B;
+    border-color: #c5a059;
+    transform: translateY(-3px);
+}
+
+/* =========================================
+   3. BANNER PRINCIPAL (HERO)
+   ========================================= */
+.hero-section { 
+    position: relative; 
+    height: 600px; 
+    width: 100%; 
+    background-image: url('curso.jpeg'); 
+    background-size: 80%; 
+    background-position: 100% 40%; 
+    border-radius: 0; 
+    border-bottom: 4px solid #c5a059;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    z-index: 3; 
+}
+
+.hero-overlay { 
+    width: 100%; 
+    height: 100%; 
+    background: linear-gradient(90deg, #050e24 25%, rgba(5, 14, 36, 0.7) 60%, rgba(5, 14, 36, 0) 100%); 
+    display: flex; 
+    align-items: center; 
+    padding-left: 10%; 
+}
+
+.hero-content { 
+    max-width: 600px; 
+}
+
+.candidate-name { 
+    font-family: 'Cinzel', serif; 
+    font-size: 4rem; 
+    color: #ffffff; 
+    line-height: 1; 
+    margin-bottom: 10px; 
+    font-weight: 400; 
+}
+
+.hero-content .vote-number { 
+    font-family: 'Playfair Display', serif; 
+    font-size: 5rem; 
+    color: #ffffff !important; 
+    line-height: 1; 
+    font-weight: 700; 
+    margin-bottom: 15px; 
+    text-transform: uppercase; 
+}
+
+.hero-content .vote-number span {
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff;
+}
+
+.slogan { 
+    color: #fff; 
+    font-size: 1.5rem; 
+    letter-spacing: 3px; 
+    font-weight: 300; 
+    text-transform: uppercase; 
+    border-top: 1px solid #c5a059; 
+    padding-top: 15px; 
+    display: inline-block; 
+}
+
+/* =========================================
+   4. CARROSSEL (AGENDA)
+   ========================================= */
+.cards-section {
+    position: relative;
+    width: 92%; 
+    margin: 0 auto; 
+    height: 550px; 
+    background: linear-gradient(rgba(5, 18, 43, 0.5), rgba(5, 18, 43, 0.5)), url('curso2.jpg'); 
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom-left-radius: 100px;
+    border-bottom-right-radius: 100px;
+    overflow: hidden;
+    z-index: 2; 
+    border-bottom: 4px solid #c5a059; 
+    box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+}
+
+.carousel-container { width: 100%; max-width: 1200px; height: 100%; position: relative; }
+.carousel-track-container { width: 100%; height: 100%; overflow: hidden; position: relative; }
+.carousel-track { padding: 0; margin: 0; list-style: none; position: relative; height: 100%; width: 100%; transition: transform 0.5s ease-in-out; }
+.carousel-slide { position: absolute; top: 0; bottom: 0; width: 100%; }
+
+.info-card {
+    background: transparent; 
+    width: 100%;
+    height: 100%;
+    padding: 0 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start; 
+    text-align: left;
+}
+
+.info-card h3 {
+    font-family: 'Cinzel', serif;
+    color: #ffffff;
+    font-size: 3.5rem; 
+    font-weight: 700;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+    border-bottom: 3px solid #c5a059;
+    padding-bottom: 10px;
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.9);
+}
+
+.info-card p {
+    color: #f0f0f0;
+    font-size: 1.3rem;
+    line-height: 1.5;
+    max-width: 500px;
+    text-shadow: 1px 1px 8px rgba(0,0,0,1);
+    margin-bottom: 20px;
+    font-weight: 500;
+}
+
+.btn-pilula {
+    display: inline-block;
+    background-color: #FFD700; 
+    color: #05122B; 
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 15px 45px;
+    border-radius: 50px; 
+    margin-top: 15px;
+    box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.btn-pilula:hover { transform: scale(1.05); background-color: #ffea00; box-shadow: 0 8px 20px rgba(255, 215, 0, 0.5); }
+
+.nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255,255,255,0.2); 
+    border: 1px solid rgba(255,255,255,0.5);
+    color: #fff;
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    cursor: pointer;
+    z-index: 10;
+    transition: all 0.3s;
+    display: flex; align-items: center; justify-content: center;
+}
+.nav-btn:hover { background-color: #c5a059; border-color: #c5a059; }
+.prev-btn { left: 20px; }
+.next-btn { right: 20px; }
+
+.carousel-nav { position: absolute; bottom: 40px; width: 100%; display: flex; justify-content: center; z-index: 10; }
+.carousel-indicator { border: 0; border-radius: 50%; width: 10px; height: 10px; background: rgba(255, 255, 255, 0.5); margin: 0 8px; cursor: pointer; transition: all 0.3s; }
+.carousel-indicator.current-slide { background: #c5a059; transform: scale(1.2); }
+
+/* =========================================
+   5. SEÇÃO BIOGRAFIA (ATUALIZADA)
+   ========================================= */
+.about-section {
+    background-color: #ffffff; 
+    margin-top: -550px; 
+    padding: 650px 0 80px 0; 
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    position: relative;
+    z-index: 1; 
+}
+
+/* Aumentei um pouco a largura máxima para dar mais espaço */
+.about-container { width: 90%; max-width: 1200px; display: flex; align-items: flex-start; gap: 60px; }
+
+.about-image-container { 
+    /* Tenta ocupar 45% do espaço, crescendo e encolhendo conforme necessário */
+    flex: 1 1 45%; 
+    /* Aumentei a largura mínima para a imagem não ficar pequena demais */
+    min-width: 400px; 
+    position: relative; 
+    margin-top: 20px; 
+}
+
+.about-img { width: 100%; height: auto; border-radius: 10px; box-shadow: 0 15px 30px rgba(0,0,0,0.3); position: relative; z-index: 2; display: block; }
+.img-border { position: absolute; top: 20px; left: -20px; width: 100%; height: 100%; border: 3px solid #c5a059; border-radius: 10px; z-index: 1; }
+
+.about-text-content { 
+    /* Tenta ocupar 55% do espaço, mantendo o equilíbrio */
+    flex: 1 1 55%; 
+    color: #333; 
+}
+
+.about-text-content h2 { font-family: 'Cinzel', serif; color: #05122B; font-size: 2.5rem; font-weight: 700; margin-bottom: 5px; border-left: 5px solid #c5a059; padding-left: 15px; line-height: 1; }
+.about-text-content h3 { font-family: 'Playfair Display', serif; color: #c5a059; font-size: 1.2rem; margin-bottom: 30px; font-weight: 400; padding-left: 20px; text-transform: uppercase; letter-spacing: 1px; }
+.about-text-content p { font-family: 'Roboto', sans-serif; font-size: 1.1rem; line-height: 1.8; margin-bottom: 20px; text-align: justify; color: #555; }
+.highlight-text { background-color: #f4f4f4; padding: 20px; border-left: 4px solid #05122B; font-weight: 500; color: #05122B !important; border-radius: 5px; }
+
+/* Ajuste para responsividade (mantido do original, apenas para referência) */
+@media (max-width: 1100px) {
+    .about-container { flex-direction: column; align-items: center; }
+    /* No celular, a imagem ocupa a largura total disponível */
+    .about-image-container { width: 100%; max-width: 500px; margin-bottom: 50px; margin-left: 0; }
+}
+/* =========================================
+   6. SEÇÃO PROJETOS
+   ========================================= */
+.projects-section {
+    background-color: #f9f9f9; 
+    padding: 80px 0;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+    border-top: 1px solid #ddd;
+}
+
+.projects-container {
+    width: 90%;
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+}
+
+.section-header {
+    margin-bottom: 50px;
+    text-align: left;
+}
+
+.section-header h2 {
+    font-family: 'Cinzel', serif;
+    color: #05122B;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 5px;
+    border-left: 5px solid #c5a059;
+    padding-left: 15px;
+    line-height: 1;
+}
+
+.section-header h3 {
+    font-family: 'Playfair Display', serif;
+    color: #c5a059;
+    font-size: 1.2rem;
+    font-weight: 400;
+    padding-left: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 5px;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+}
+
+.project-card {
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 0;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+    display: flex;
+    flex-direction: column;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    border-color: #c5a059;
+}
+
+.card-img-wrapper {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+}
+
+.project-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s;
+}
+
+.project-card:hover .project-img { transform: scale(1.1); }
+
+.card-content {
+    padding: 30px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card-content h4 {
+    font-family: 'Cinzel', serif;
+    color: #05122B;
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.card-content p {
+    font-family: 'Roboto', sans-serif;
+    color: #666;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 25px;
+    text-align: justify;
+}
+
+.btn-square-small {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: transparent;
+    color: #05122B;
+    border: 2px solid #05122B;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-decoration: none;
+    text-align: center;
+    transition: all 0.3s;
+    align-self: flex-start;
+    cursor: pointer;
+}
+
+.btn-square-small:hover {
+    background-color: #05122B;
+    color: #fff;
+}
+
+/* =========================================
+   7. MODAL (JANELAS FLUTUANTES)
+   ========================================= */
+.modal-overlay {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(5, 18, 43, 0.9);
+    backdrop-filter: blur(5px);
+    animation: fadeIn 0.3s;
+}
+
+.modal-box {
+    background-color: #fefefe;
+    margin: 10% auto;
+    padding: 40px;
+    border: 2px solid #c5a059;
+    width: 80%;
+    max-width: 700px;
+    position: relative;
+    border-radius: 0;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+    animation: slideDown 0.4s;
+}
+
+.modal-box h3 {
+    font-family: 'Cinzel', serif;
+    color: #05122B;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #c5a059;
+    padding-bottom: 10px;
+}
+
+.modal-box p {
+    font-family: 'Roboto', sans-serif;
+    color: #444;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 15px;
+    text-align: justify;
+}
+
+.close-btn {
+    color: #aaa;
+    float: right;
+    font-size: 40px;
+    font-weight: bold;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.close-btn:hover { color: #c5a059; }
+
+@keyframes fadeIn { from {opacity: 0;} to {opacity: 1;} }
+@keyframes slideDown { from {transform: translateY(-50px); opacity: 0;} to {transform: translateY(0); opacity: 1;} }
+
+/* =========================================
+   8. SEÇÃO PROPOSTAS
+   ========================================= */
+.proposals-section {
+    background-color: #ffffff;
+    padding: 80px 0;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+    border-top: 1px solid #eee;
+}
+
+.proposals-container {
+    width: 90%;
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+}
+
+.proposals-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+}
+
+.proposal-card {
+    background-color: #fcfcfc;
+    border: 1px solid #e0e0e0;
+    padding: 40px 30px;
+    position: relative;
+    transition: all 0.3s ease;
+    border-left: 4px solid #c5a059;
+    overflow: hidden;
+}
+
+.proposal-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+    background-color: #fff;
+    border-color: #05122B;
+}
+
+.proposal-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 4rem;
+    font-weight: 700;
+    color: rgba(197, 160, 89, 0.15); 
+    position: absolute;
+    top: -10px;
+    right: 20px;
+    line-height: 1;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.proposal-card:hover .proposal-number { 
+    color: rgba(197, 160, 89, 0.3); 
+}
+
+.proposal-card h4 {
+    font-family: 'Cinzel', serif;
+    color: #05122B;
+    font-size: 1.35rem; 
+    font-weight: 700;
+    margin-bottom: 15px;
+    margin-top: 20px;
+    position: relative;
+    z-index: 2;
+    line-height: 1.4;
+}
+
+.proposal-card p {
+    font-family: 'Roboto', sans-serif;
+    color: #555;
+    font-size: 1.05rem;
+    line-height: 1.6;
+    text-align: left;
+    position: relative;
+    z-index: 2;
+}
+
+/* =========================================
+   9. RODAPÉ (FOOTER)
+   ========================================= */
+.site-footer {
+    background-color: #05122B; 
+    color: #ffffff;
+    padding-top: 60px;
+    border-top: 4px solid #c5a059;
+    font-family: 'Roboto', sans-serif;
+}
+
+.footer-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    padding-bottom: 40px;
+}
+
+.footer-col h4 {
+    font-family: 'Cinzel', serif;
+    color: #c5a059;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    border-bottom: 1px solid rgba(197, 160, 89, 0.3);
+    padding-bottom: 10px;
+    display: inline-block;
+}
+
+.footer-logo {
+    font-family: 'Cinzel', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: #fff;
+}
+
+.footer-slogan {
+    font-size: 0.95rem;
+    color: #ccc;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    max-width: 300px;
+}
+
+.footer-socials {
+    display: flex;
+    gap: 15px;
+}
+
+.footer-socials a {
+    color: #fff;
+    background-color: rgba(255,255,255,0.1);
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.3s;
+    text-decoration: none;
+}
+
+.footer-socials a:hover {
+    background-color: #c5a059;
+    color: #05122B;
+}
+
+.footer-col ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-col ul li {
+    margin-bottom: 10px;
+}
+
+.footer-col ul li a {
+    color: #ccc;
+    text-decoration: none;
+    transition: color 0.3s;
+    font-size: 0.95rem;
+}
+
+.footer-col ul li a:hover {
+    color: #c5a059;
+    padding-left: 5px; 
+}
+
+.contact-list i {
+    color: #c5a059;
+    margin-right: 10px;
+    width: 20px; 
+    text-align: center;
+}
+
+.footer-bottom {
+    background-color: #030c1d; 
+    padding: 20px 0;
+    text-align: center;
+    font-size: 0.85rem;
+    color: #777;
+    border-top: 1px solid rgba(255,255,255,0.05);
+}
+
+.footer-bottom p {
+    margin: 5px 0;
+}
+
+/* =========================================
+   10. RESPONSIVIDADE (CELULAR)
+   ========================================= */
+@media (max-width: 1100px) {
+    .top-bar {
+        flex-direction: column;
+        gap: 20px;
+        padding: 20px;
+        position: static; 
+    }
+    
+    .navbar ul {
+        gap: 15px;
+        flex-wrap: wrap;
+    }
+    
+    .social-text {
+        display: none; 
+    }
+
+    .hero-section { height: 400px; border-radius: 0; }
+    .candidate-name { font-size: 2.5rem; }
+    .hero-content .vote-number { font-size: 3rem; }
+    .slogan { font-size: 1rem; }
+    .hero-overlay { padding-left: 5%; align-items: flex-end; padding-bottom: 40px; }
+    
+    .cards-section { 
+        height: 380px; 
+        width: 95%; 
+        border-bottom-left-radius: 60px;
+        border-bottom-right-radius: 60px;
+    }
+    .info-card { padding: 0 30px; align-items: center; text-align: center; }
+    .info-card h3 { font-size: 2rem; }
+    .info-card p { font-size: 1rem; }
+    
+    .about-section { 
+        margin-top: -380px; 
+        padding-top: 480px; 
+        border-radius: 0; 
+    }
+    .about-container { flex-direction: column; align-items: center; }
+    .about-image-container { width: 100%; max-width: 450px; margin-bottom: 50px; margin-left: 20px; }
+    .about-text-content h2 { font-size: 2rem; }
+
+    .projects-grid, .proposals-grid {
+        grid-template-columns: 1fr;
+        padding: 0 20px;
+    }
+}
+
+/* =========================================
+   11. ANIMAÇÕES DE SCROLL
+   ========================================= */
+.hidden {
+    opacity: 0;
+    filter: blur(5px);
+    transform: translateY(50px);
+    transition: all 1s ease;
+}
+
+.show {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0);
+}
+
+@media(prefers-reduced-motion) {
+    .hidden {
+        transition: none;
+    }
+}
+
+/* =========================================
+   12. BOTÃO WHATSAPP FLUTUANTE
+   ========================================= */
+.whatsapp-float {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 30px;
+    right: 30px;
+    background-color: #25d366;
+    color: #FFF;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 35px;
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.1);
+    background-color: #20ba5a;
+    box-shadow: 2px 2px 15px rgba(37, 211, 102, 0.6);
+}
+
+/* =========================================
+   12. SEÇÃO DE VOLUNTÁRIOS (CORRIGIDO FINAL)
+   ========================================= */
+.volunteer-section {
+    position: relative;
+    display: block;
+    width: 100%;
+    
+    /* FUNDO AZUL + IMAGEM + ESCURECIMENTO (Tudo junto para não quebrar) */
+    background: 
+        linear-gradient(rgba(5, 18, 43, 0.95), rgba(5, 18, 43, 0.95)), /* Película escura */
+        url('curso.jpeg'); /* Sua imagem */
+        
+    background-color: #05122B; /* Cor de segurança */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Efeito parallax bonito */
+    
+    /* Espaçamento interno grande para o formulário respirar */
+    padding: 100px 0; 
+    
+    text-align: center;
+    color: #fff;
+    z-index: 10;
+    
+    /* Borda dourada para separar das propostas */
+    border-top: 5px solid #c5a059;
+}
+
+/* IMPORTANTE: A classe .volunteer-overlay não é mais necessária no CSS 
+   porque o efeito está no background acima, mas se ela estiver no HTML, 
+   o código abaixo garante que ela não atrapalhe */
+.volunteer-overlay {
+    display: contents; /* Faz o conteiner ser ignorado e mostra só o conteúdo */
+}
+
+.volunteer-content {
+    position: relative;
+    width: 90%;
+    max-width: 700px;
+    margin: 0 auto; /* Centraliza tudo */
+}
+
+.volunteer-content h2 {
+    font-family: 'Cinzel', serif;
+    font-size: 2.2rem;
+    color: #c5a059;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.volunteer-content p {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1rem;
+    margin-bottom: 30px;
+    color: #e0e0e0;
+}
+
+.google-form-wrapper {
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+    border: 3px solid #c5a059;
+    margin-bottom: 0; /* Remove margem extra que podia empurrar o footer */
+}
+
+/* Ajuste de altura do formulário no celular e PC */
+.google-form-wrapper iframe {
+    width: 100%;
+    /* Altura suficiente para o formulário não ter barra de rolagem dupla */
+    height: 1100px; 
+    border: none;
+}
+
+@media (max-width: 600px) {
+    .google-form-wrapper iframe {
+        height: 1200px; /* No celular o formulário fica mais comprido */
+    }
+    
+    .volunteer-section {
+        padding: 60px 0;
+    }
+}
